@@ -111,9 +111,9 @@
             // Plyr player options (same as original code)
             const player = new Plyr(video, {
                 captions: { active: true, update: true },
-                controls: ['play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time', 'duration', 'mute', 'volume', 'settings', 'pip', 'airplay', 'fullscreen', 'download'],
+                controls: ['play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time', 'duration', 'mute', 'volume', 'settings', 'pip', 'airplay', 'fullscreen', '#download'],
                 quality: {
-                    default: 720,
+                    default: 1080,
                     options: [1080, 720, 480, 360],
                     forced: true,
                     onChange: quality => console.log('Quality changed to', quality)
