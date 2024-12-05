@@ -4,14 +4,11 @@
 <meta charset='utf-8'/>
 <title>Beup</title>
 <meta content='My Page Description' name='description'/>
-
 <link href='https://cdn.plyr.io/3.7.8/plyr.css' rel='stylesheet'/>
 <script src='https://cdn.plyr.io/3.7.8/plyr.js'></script>
- 
-<!-- plyr mod   --> 
+<!-- plyr mod -->
 <link href='https://cdn.jsdelivr.net/gh/eljabbaryhicham/Plyr-CSS@main/beup_styles.css' rel='stylesheet'/>
-
-<!-- plyr m3u8 support  --> 
+<!-- plyr m3u8 support -->
 <script src='//cdn.jsdelivr.net/npm/hls.js@1'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/8.0.0-beta.3/hls.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/8.0.0-beta.3/hls.min.js"></script>
@@ -19,106 +16,19 @@
 <script src="https://cdn.rawgit.com/video-dev/hls.js/18bb552/dist/hls.min.js"></script>
 
 <style>
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-        font-family: 'Arial', sans-serif;
-    }
-    .video-container {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-    }
-    .toggle-input-btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 20;
-        background-color: #f96d61;
-        color: #ecf0f1;
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-         opacity: 20%;
-    }
-    .toggle-input-btn:hover {
-        background-color: #85312a;
-        transform: scale(1.1);
-         opacity: 80%;
-    }
-    .video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        z-index: 10;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s;
-    }
-    .video-overlay.show {
-        opacity: 1;
-        visibility: visible;
-    }
-    .input-wrapper {
-        width: 50%;
-        display: flex;
-        align-items: center;
-    }
-    #videoLinkInput {
-        flex-grow: 1;
-        padding: 12px 15px;
-        margin-right: 10px;
-        background-color: rgba(30, 30, 30, 0.9);
-        border: 2px solid rgba(70, 70, 70, 0.8);
-        color: #e0e0e0;
-        border-radius: 8px;
-        outline: none;
-        transition: border-color 0.3s ease;
-    }
-    #videoLinkInput:focus {
-        border-color: #4a90e2;
-    }
-    #videoLinkInput::placeholder {
-        color: rgba(200, 200, 200, 0.6);
-    }
-    #loadVideoBtn {
-        padding: 12px 20px;
-        background-color: #2c3e50;
-        color: #ecf0f1;
-        border: 2px solid #34495e;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    #loadVideoBtn:hover {
-            background-color: #f96d61;
-    border-color: #fbbbb6;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0,0,0,0.2);
-    }
-    #player {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+    html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Arial', sans-serif; }
+    .video-container { position: relative; width: 100%; height: 100vh; }
+    .toggle-input-btn { position: absolute; top: 20px; right: 20px; z-index: 20; background-color: #f96d61; color: #ecf0f1; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); opacity: 20%; }
+    .toggle-input-btn:hover { background-color: #85312a; transform: scale(1.1); opacity: 80%; }
+    .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100px; z-index: 10; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s; }
+    .video-overlay.show { opacity: 1; visibility: visible; }
+    .input-wrapper { width: 50%; display: flex; align-items: center; }
+    #videoLinkInput { flex-grow: 1; padding: 12px 15px; margin-right: 10px; background-color: rgba(30, 30, 30, 0.9); border: 2px solid rgba(70, 70, 70, 0.8); color: #e0e0e0; border-radius: 8px; outline: none; transition: border-color 0.3s ease; }
+    #videoLinkInput:focus { border-color: #4a90e2; }
+    #videoLinkInput::placeholder { color: rgba(200, 200, 200, 0.6); }
+    #loadVideoBtn { padding: 12px 20px; background-color: #2c3e50; color: #ecf0f1; border: 2px solid #34495e; cursor: pointer; border-radius: 8px; transition: all 0.3s ease; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    #loadVideoBtn:hover { background-color: #f96d61; border-color: #fbbbb6; transform: translateY(-2px); box-shadow: 0 6px 8px rgba(0,0,0,0.2); }
+    #player { width: 100%; height: 100%; object-fit: cover; }
 </style>
 </head>
 <body>
@@ -137,10 +47,10 @@
             </div>
         </div>
 
-        <div allow='autoplay' class='vid'>
-            <video allow='autoplay' autoplay='true' id='player' poster='https://1.bp.blogspot.com/-vYG6xhtQtU0/XVOD1NB9o7I/AAAAAAAACZk/rb9g1ozkW9sU4IdaE0JDU0cTW3V-frt8QCLcBGAs/s1600/logo-beup-colored.png'>
-                <source size='576' src=''/>
-            </video> 
+        <div class="vid">
+            <video allow="autoplay" autoplay="true" id="player" poster="https://1.bp.blogspot.com/-vYG6xhtQtU0/XVOD1NB9o7I/AAAAAAAACZk/rb9g1ozkW9sU4IdaE0JDU0cTW3V-frt8QCLcBGAs/s1600/logo-beup-colored.png">
+                <source size="576" src="" />
+            </video>
         </div>
     </div>
 
@@ -154,7 +64,7 @@
         const videoOverlay = document.querySelector('.video-overlay');
         const toggleInputBtn = document.querySelector('.toggle-input-btn');
 
-        // Function to initialize Plyr and HLS
+        // Function to initialize Plyr and HLS or MP4 based on video type
         function initializePlayer(videoSource) {
             // Destroy existing HLS instance if it exists
             if (window.hls) {
@@ -162,15 +72,12 @@
             }
 
             const supported = Plyr.supported('video', 'html5', true);
+            const fileExtension = videoSource.split('.').pop().toLowerCase();
 
             // Plyr player options (same as original code)
             const player = new Plyr(video, {
                 captions: { active: true, update: true },
-                controls: [
-                    'play-large', 'rewind', 'play', 'fast-forward', 'progress', 
-                    'current-time', 'duration', 'mute', 'volume', 'settings', 
-                    'pip', 'airplay', 'fullscreen', 'download'
-                ],
+                controls: ['play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time', 'duration', 'mute', 'volume', 'settings', 'pip', 'airplay', 'fullscreen', 'download'],
                 quality: {
                     default: 720,
                     options: [1080, 720, 480, 360],
@@ -183,9 +90,13 @@
                 settings: ['captions', 'quality', 'speed', 'loop']
             });
 
-            if (!Hls.isSupported()) {
+            if (fileExtension === 'mp4') {
+                // Directly use HTML5 video for MP4
+                video.src = videoSource;
+            } else if (!Hls.isSupported()) {
                 video.src = videoSource;
             } else {
+                // Use HLS.js for streams (M3U8)
                 const hls = new Hls();
                 hls.loadSource(videoSource);
                 hls.attachMedia(video);
