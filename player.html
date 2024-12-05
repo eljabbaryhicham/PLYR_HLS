@@ -79,7 +79,7 @@
                 captions: { active: true, update: true },
                 controls: ['play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time', 'duration', 'mute', 'volume', 'settings', 'pip', 'airplay', 'fullscreen', '#download'],
                 quality: {
-                    default: 720,
+                    default: 1080,
                     options: [1080, 720, 480, 360],
                     forced: true,
                     onChange: quality => console.log('Quality changed to', quality)
@@ -87,7 +87,7 @@
                 debug: true,
                 restart: true,
                 autoplay: true,
-                settings: ['captions', 'quality', '#speed', 'loop']
+                settings: ['captions', 'quality', 'speed', 'loop']
             });
 
             if (fileExtension === 'mp4') {
