@@ -7,7 +7,7 @@
 <link href='https://cdn.plyr.io/3.7.8/plyr.css' rel='stylesheet'/>
 <script src='https://cdn.plyr.io/3.7.8/plyr.js'></script>
 <!-- plyr mod -->
-<link href='https://cdn.jsdelivr.net/gh/eljabbaryhicham/Plyr-CSS@main/beup_styles.css' rel='stylesheet'/>
+
 <!-- plyr m3u8 support -->
 <script src='//cdn.jsdelivr.net/npm/hls.js@1'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/8.0.0-beta.3/hls.js"></script>
@@ -15,9 +15,26 @@
 <script src="//cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script src="https://cdn.rawgit.com/video-dev/hls.js/18bb552/dist/hls.min.js"></script>
 
+
+<!--  -->
+<link href='https://cdn.jsdelivr.net/gh/eljabbaryhicham/Plyr-CSS@refs/heads/main/beup_styles.css' rel='stylesheet'/>
+
+
 <style>
     html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: 'Arial', sans-serif; }
-    .video-container { position: relative; width: 100%; height: 100vh; }
+    .video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+.vid {
+    width: 100%;
+}
     .toggle-input-btn { position: absolute; top: 20px; right: 20px; z-index: 20; background-color: #f96d61; color: #ecf0f1; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); opacity: 20%; }
     .toggle-input-btn:hover { background-color: #85312a; transform: scale(1.1); opacity: 80%; }
     .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100px; z-index: 10; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s; }
@@ -29,6 +46,9 @@
     #loadVideoBtn { padding: 12px 20px; background-color: #2c3e50; color: #ecf0f1; border: 2px solid #34495e; cursor: pointer; border-radius: 8px; transition: all 0.3s ease; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     #loadVideoBtn:hover { background-color: #f96d61; border-color: #fbbbb6; transform: translateY(-2px); box-shadow: 0 6px 8px rgba(0,0,0,0.2); }
     #player { width: 100%; height: 100%; object-fit: cover; }
+
+
+
 </style>
 </head>
 <body>
@@ -77,9 +97,9 @@
             // Plyr player options (same as original code)
             const player = new Plyr(video, {
                 captions: { active: true, update: true },
-                controls: ['play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time', 'duration', 'mute', 'volume', 'settings', 'pip', 'airplay', 'fullscreen', '#download'],
+                controls: ['play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time', 'duration', 'mute', 'volume', 'settings', 'pip', 'airplay', 'fullscreen', 'download'],
                 quality: {
-                    default: 1080,
+                    default: 720,
                     options: [1080, 720, 480, 360],
                     forced: true,
                     onChange: quality => console.log('Quality changed to', quality)
